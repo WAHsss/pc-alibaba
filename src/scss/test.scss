@@ -1,0 +1,49 @@
+/*一 、 @import 我们的css从此可以进行不短的拆分确保我们的程序可维护性变高*/
+@import "./reset";
+@import "./variable";
+/*所有的sass之中的关键字 都以 @开头*/
+
+/* 二 、变量 
+
+      sass 提供了很多的工具函数 : 
+      darken(); 黑暗;
+      ligthen(); 变量;
+*/
+
+body{
+      background : $base-color;
+}
+.test-box{
+      width: 100px;
+      height: 100px;
+      background: darken($base-color, $amount: 50);
+      color:lighten($base-color, $amount: 10)
+}
+/* 数组 */
+
+button{
+      background: #ddd;
+      color : #fff;
+      border-radius: 10px;
+      border: none;
+}
+/*重复性的工作*/
+// .btn-small{
+//       padding: 3px 5px;
+// }
+// .btn-normal{
+//       padding:  6px 8px;
+// }
+// .btn-large{
+//       padding:  8px 10px;
+// }
+
+// 每个括号就是一个数组， 数组之间的值用空格隔开
+$btn-size-list :(small (3px 5px)) (normal (6px 8px)) (large (8px 10px));
+
+// start to end  : end> $index >=start
+@for $index from 1 to 4 {
+      .btn-#{nth(nth($btn-size-list,$index),1)}{
+            padding: nth(nth($btn-size-list,$index),2);
+      }
+}

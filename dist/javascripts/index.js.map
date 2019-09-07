@@ -1,0 +1,1 @@
+{"version":3,"sources":["index1.js"],"names":["Syx","_classCallCheck","this","console","log"],"mappings":"6HAAAA,IACA,SAAAA,IAAAC,gBAAAC,KAAAF,GACAG,QAAAC,IAAA,WAGA,IAAAJ","file":"index.js","sourcesContent":["class Syx{\r\n    constructor(){\r\n        console.log(\"syx是sb\")\r\n    }\r\n}\r\nnew Syx();"]}
