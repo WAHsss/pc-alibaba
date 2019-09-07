@@ -6,7 +6,9 @@ const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const htmlmin = require('gulp-htmlmin');
 const cssmin = require('gulp-cssmin');
-const rename = require("gulp-rename");
+//const rename = require("gulp-rename");
+const sass = require("gulp-sass");
+sass.compiler = require('node-sass');
 
 const {paths} = require("./config/gulp.config");
 
@@ -49,8 +51,18 @@ async function javascript() {
         .pipe(gulp.dest(distPaths.javascript))
 }
 
+async function scss(){
+    await gulp.src([paths.scss+"*.scss"])
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cssmin())
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest(distPaths.style))
+}
+
+gulp.task(scss);
 gulp.task(handlerClean);
 gulp.task(javascript);
 gulp.task(css);
 gulp.task(html);
-gulp.task("build", gulp.series("handlerClean", "javascript", "css", "html"));
+gulp.task("build", gulp.series("handlerClean", "javascript", "css", "html","scss"));
