@@ -52,7 +52,7 @@ async function javascript() {
 }
 
 async function scss(){
-    await gulp.src([paths.scss+"*.scss"])
+    await gulp.src([paths.scss+"**/*.scss"])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(cssmin())
