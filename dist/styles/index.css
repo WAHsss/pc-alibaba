@@ -261,9 +261,11 @@ a {
       width: 1px; }
 
 nav {
-  padding: 20px 0;
+  height: 40px;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  line-height: 12px;
+  background: pink; }
   nav a:hover {
     color: #ff6a00; }
   nav .nav-i-detail {
@@ -281,18 +283,25 @@ nav {
     background-image: url(https://s.alicdn.com/@img/tfs/TB1mHDTXMaH3KVjSZFpXXbhKpXa-600-400.png?webp=close);
     background-position: -62px -59px; }
   nav .nav-categories {
-    float: left; }
+    float: left;
+    padding-right: 10px;
+    padding-left: 16px; }
     nav .nav-categories:hover .nav-i-arrow-down {
       background-image: url(https://s.alicdn.com/@img/tfs/TB1mHDTXMaH3KVjSZFpXXbhKpXa-600-400.png?webp=close);
       background-position: -111px -59px;
       transform: rotate(180deg); }
   nav .nav-vertical-line {
-    float: left; }
+    float: left;
+    height: 16px;
+    width: 1px;
+    background: #dddee3; }
   nav .nav-list-th {
     float: left; }
     nav .nav-list-th .nav-list-item {
-      padding: 0 12px 15px;
+      padding: 0 12px;
       float: left; }
+      nav .nav-list-th .nav-list-item .nav-list-item-info {
+        vertical-align: middle; }
       nav .nav-list-th .nav-list-item:hover .nav-i-arrow-down {
         background-image: url(https://s.alicdn.com/@img/tfs/TB1mHDTXMaH3KVjSZFpXXbhKpXa-600-400.png?webp=close);
         background-position: -111px -59px;

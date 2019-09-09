@@ -146,9 +146,11 @@
     }
 }
 nav{
-    padding: 20px 0;
+    height: 40px;
     overflow: hidden;
     position: relative;
+    line-height: 12px;
+    background: pink;
     a:hover{
         color: #ff6a00;
     }
@@ -169,6 +171,8 @@ nav{
     .nav-categories{
         
         float: left;
+        padding-right: 10px;
+        padding-left: 16px;
         .nav-categories-show{
             
         }
@@ -179,17 +183,25 @@ nav{
     }
     .nav-vertical-line{
         float: left;
+        height: 16px;
+        width: 1px;
+        background: #dddee3;
     }
     .nav-list-th{
         float: left;
         .nav-list-item{
-            padding: 0 12px 15px;
+            padding: 0 12px;
             float: left;
+
+            .nav-list-item-info{
+                vertical-align: middle;
+            }
             &:hover .nav-i-arrow-down{
                 @include css-sprite(-111px -59px);      
                 transform:rotate(180deg);
             }
             
         }
+
     }
 }
