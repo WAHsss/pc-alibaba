@@ -6,6 +6,7 @@ const gulp = require("gulp");
 
 const connect = require("gulp-connect");
 const proxy = require("http-proxy-middleware");
+const sourcemaps = require("gulp-sourcemaps");
 const { proxyList } = require("./config/gulp.config");
 var sass = require('gulp-sass');
 sass.compiler = require('node-sass');
@@ -53,8 +54,10 @@ function css(done) {
     done();
 }
 async function scss(){
-    await gulp.src([paths.scss+"*.scss"])
+    await gulp.src([paths.scss+"**/*.scss"])
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error',sass.logError))
+    .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(distPaths.style))
     .pipe(connect.reload())
 }
@@ -67,9 +70,9 @@ function html(done) {
 }
 async function watch() {
     await gulp.watch([paths.javascript + "*.js"], gulp.series("javascript"));
-    await gulp.watch([paths.style + "*.css"], gulp.series("css"));
+    await gulp.watch([paths.style + "**/*.css"], gulp.series("css"));
     await gulp.watch([paths.html + "*.html"], gulp.series("html"));
-    await gulp.watch([paths.scss + "*.scss"],gulp.series("scss"))
+    await gulp.watch([paths.scss + "**/*.scss"],gulp.series("scss"))
 }
 gulp.task(handlerConnect);
 gulp.task(watch);

@@ -1,0 +1,323 @@
+@import "../tools/mixin";
+.hd-sc-row{
+    padding: 20px 0;
+    height: 40px;
+    overflow: hidden;
+    a:hover{
+        color: #ff6a00;
+    }
+    .logo{
+        margin-left: 20px; 
+        width: 188px;
+        height: 32px;
+        @include css-sprite(0 0);
+        float: left;
+    }
+    .hd-sc-box{
+        width: 881px;
+        height: 36px;
+        border: 2px solid #ff6a01;
+        border-radius: 36px;
+    
+        float: left;
+        margin-left: 42px;
+        position: relative;
+    }
+    .hd-sc-choose-btn{
+        width: 103px;
+        height: 36px;
+        padding-left: 21px;
+        font-size: 13px;
+        color: #333;
+        float: left;
+        line-height: 36px;
+    }
+    .hd-sc-inp{
+        position: absolute;
+        top: 1px;
+        left: 105px;
+        width: 593px;
+        height: 16px;
+        font-size: 14px;
+        line-height: 100%;
+        color: #333;
+        padding: 9px 36px 9px 10px;
+        border-left: 1px solid #e6e6e6;
+    }
+    .hd-sc-camera{
+        position: absolute;
+        display: block;
+        top: 10px;
+        right: 148px;
+        width: 16px;
+        height: 16px;
+        @include css-sprite(-394px 0);
+        &:hover{
+            @include css-sprite(-394px -28px);
+        }
+        &::before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: calc(-100% - 2px);
+            left: 100%;
+            width: 35px;
+            height: 18px;
+            @include css-sprite(-187px -151px);
+            z-index: 1;
+        }
+    }
+    .hd-sc-submit{
+        background: #ff6a01;
+        float: right;
+        width: 138px;
+        height: 36px;
+        color: #fff;
+        padding-left: 22px;
+        border-radius:  0 36px 36px 0;
+        &:hover{
+            background-color: #e35300;
+        }
+    }
+    .hd-sc-seach-icon{
+        display: block;
+        position: absolute;
+        width: 15px;
+        height: 16px;
+        top: 10px;
+        right: 90px;
+        @include css-sprite(-388px -193px);
+    }
+    
+    .hd-sc-notify{
+        float: left;
+        margin-left: 30px;
+        div[class ^= hd-sc-box]{
+            padding:0 16px;
+            height: 52px;
+            float: left;
+        } 
+    }
+    .hd-sc-i-user{
+        display:block;
+        float: left;
+        width: 28px;
+        height: 28px;
+        margin-top: 6px;
+        @include css-sprite(-313px -144px);
+    }
+    .hd-sc-sign-inner{
+        float: left;
+        overflow: hidden;
+        margin-left: 4px;
+    }
+    .hd-sc-link-unsingin,.hd-sc-link-register{
+        line-height: 19px;
+        display: block;
+    }
+    
+    .hd-sc-i-msg{
+        display: block;
+        margin: 0 auto;
+        width: 22px;
+        height: 20px;
+        @include css-sprite(-170px -191px)
+    }
+    .hd-sc-i-order{
+        display: block;
+        margin: 0 auto;
+        width: 20px;
+        height: 20px;
+        @include css-sprite(-208px -191px)
+    }
+    .hd-sc-i-cart{
+        display: block;
+        margin: 0 auto;
+        width: 21px;
+        height: 20px;
+        @include css-sprite(-243px -191px)
+    }
+    .hd-sc-link-a{
+        margin-top: 7px;
+        line-height: 12px;
+    }
+    .full-line-x{
+        @include full-line(width);
+    }
+}
+nav{
+    height: 40px;
+    // overflow: hidden;
+    position: relative;
+    line-height: 12px;
+    a:hover{
+        color: #ff6a00;
+    }
+    .nav-i-detail{
+        display: inline-block;
+        line-height: 37px;
+        width: 23px;
+        height: 14px;
+        @include css-sprite(-182px -56px);
+    }
+    .nav-i-arrow-down{
+        vertical-align: middle;
+        display: inline-block;
+        line-height: 37px;
+        width: 10px;
+        height: 5px;
+        @include css-sprite(-62px -59px);
+    }
+    .nav-i-arrow-right{
+        display: block;
+        line-height: 37px;
+        width: 10px;
+        height: 5px;
+        float: right;
+        margin-top: 15px;
+        margin-right: 20px;
+        @include css-sprite(-62px -59px);
+        transform:rotate(270deg);
+    }
+    .nav-categories{
+        position: relative;
+        float: left;
+        .nav-categories-show{
+            padding-right: 10px;
+            padding-left: 16px;   
+            height: 37px;
+            border: 1px solid transparent;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            z-index: 99;
+            .nav-categories-info{
+                line-height: 38px;
+            }
+        }
+        &:hover{
+            .nav-categories-hid{
+                display: block;
+            }
+            .nav-categories-show{
+                border: 1px solid #ccc;
+                border-bottom: 2px solid #fff;
+            }
+        }
+        &:hover .nav-i-arrow-down{
+            @include css-sprite(-111px -59px);     
+            transform:rotate(180deg);
+        }
+        .nav-categories-hid{
+            display: none;
+            position: absolute;
+            z-index: 20;
+            background: #fff;
+            top: 99%;
+            width: 398px;
+            min-height: 100px;
+            padding: 10px 0;
+            box-shadow:1px 1px 1px 1px  #ccc;
+        }
+        .nav-categories-hid-item{
+            border: 1px solid transparent;
+            width: 395px;
+            height: 35px;
+            background: #fff;
+            .hid-item-nav{
+                position: relative;
+                padding-left: 20px;
+                line-height: 35px;
+                a{
+                    font-size: 14px;
+                }
+            }
+            &:hover{
+                width: 400px;
+                border: 1px solid #ddd;
+                border-right: none;
+                .nav-i-arrow-right{
+                    @include css-sprite(-111px -59px);     
+                    transform:rotate(270deg);
+                }
+                .hid-item-list{
+                    display: block;
+                }
+            }
+            .hid-item-list{
+                display: none;
+                position: absolute;
+                border-radius: 5px;
+                width: 560px;
+                height: 472px;
+                background: #fff;
+                box-shadow: 2px 1px 1px 1px #ccc;
+                padding: 35px 40px;
+                left: 100%;
+                top: 0;
+                .hid-item-list-item{
+                    width: 50%;
+                    height: 50%;
+                    float: left;
+                    .item-tit{
+                        font-weight: 700;
+                        line-height: 16px;
+                        color: #2192D9;
+                    }
+                    .item-cate{
+                        display: block;
+                    }
+                    .item-see-more{
+                        display: block;
+                        color: #999;
+                    }
+                }
+            }
+        }
+        .nav-categories-all{
+            width: 395px;
+            height: 35px;
+            
+            .hid-item-nav{
+                position: relative;
+                padding-left: 20px;
+                line-height: 35px;
+                a{
+                    font-size: 14px;
+                    color: #2192D9;
+                }
+            }
+        }
+    }
+
+    .nav-vertical-line{
+        margin-top: 12px;
+        float: left;
+        height: 16px;
+        width: 2px;
+        background: #dddee3;
+    }
+
+    .nav-list-th{
+        float: left;
+        .nav-list-item{
+            padding: 0 12px;
+            float: left;
+
+            .nav-list-item-info{
+                vertical-align: middle;
+                line-height: 40px;
+            }
+            &:hover .nav-i-arrow-down{
+                @include css-sprite(-111px -59px);
+                transform:rotate(180deg);
+            }
+            
+        }
+
+    }
+
+    .nav-right{
+        float: right;
+        height: 100%; 
+    }
+}

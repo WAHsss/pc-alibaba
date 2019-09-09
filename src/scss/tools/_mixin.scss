@@ -1,0 +1,46 @@
+@mixin margin-center {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@mixin abs-center {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@mixin left-abs-center($width:0){
+    position: absolute;
+    left: 50%;
+    margin-left:-$width / 2;
+}
+
+// c3p => css3 preFix
+@mixin c3p($attr:transition,$content: all .5s){
+    -webkit-#{$attr}: $content;
+    -moz-#{$attr}: $content;
+    -ms-#{$attr}: $content;
+    -o-#{$attr}: $content;
+    #{$attr}: $content;
+}
+@mixin ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@mixin  css-sprite($content: 0 0) {
+    background-image: url(https://s.alicdn.com/@img/tfs/TB1mHDTXMaH3KVjSZFpXXbhKpXa-600-400.png?webp=close);
+    background-position: $content;
+}
+@mixin full-line($attr: width){
+    @if $attr = width {
+        height: 1px;
+    }else{
+        width: 1px;
+    }
+    $attr : 100%;
+    background:#E6E7EB; 
+}
