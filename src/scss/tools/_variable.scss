@@ -1,1 +1,11 @@
-$base-font-size : 12px ;
+.clear-fix::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hiddden;
+}
+.clear-fix{
+    zoom: 1;
+}

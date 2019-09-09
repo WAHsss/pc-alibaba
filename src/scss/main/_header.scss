@@ -147,16 +147,15 @@
 }
 nav{
     height: 40px;
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
     line-height: 12px;
-    background: pink;
     a:hover{
         color: #ff6a00;
     }
     .nav-i-detail{
-        vertical-align: baseline;
         display: inline-block;
+        line-height: 37px;
         width: 23px;
         height: 14px;
         @include css-sprite(-182px -56px);
@@ -164,29 +163,140 @@ nav{
     .nav-i-arrow-down{
         vertical-align: middle;
         display: inline-block;
+        line-height: 37px;
         width: 10px;
         height: 5px;
         @include css-sprite(-62px -59px);
     }
+    .nav-i-arrow-right{
+        display: block;
+        line-height: 37px;
+        width: 10px;
+        height: 5px;
+        float: right;
+        margin-top: 15px;
+        margin-right: 20px;
+        @include css-sprite(-62px -59px);
+        transform:rotate(270deg);
+    }
     .nav-categories{
-        
+        position: relative;
         float: left;
-        padding-right: 10px;
-        padding-left: 16px;
         .nav-categories-show{
-            
+            padding-right: 10px;
+            padding-left: 16px;   
+            height: 37px;
+            border: 1px solid transparent;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            z-index: 99;
+            .nav-categories-info{
+                line-height: 38px;
+            }
+        }
+        &:hover{
+            .nav-categories-hid{
+                display: block;
+            }
+            .nav-categories-show{
+                border: 1px solid #ccc;
+                border-bottom: 2px solid #fff;
+            }
         }
         &:hover .nav-i-arrow-down{
             @include css-sprite(-111px -59px);     
             transform:rotate(180deg);
         }
+        .nav-categories-hid{
+            display: none;
+            position: absolute;
+            z-index: 20;
+            background: #fff;
+            top: 99%;
+            width: 398px;
+            min-height: 100px;
+            padding: 10px 0;
+            box-shadow:1px 1px 1px 1px  #ccc;
+        }
+        .nav-categories-hid-item{
+            border: 1px solid transparent;
+            width: 395px;
+            height: 35px;
+            background: #fff;
+            .hid-item-nav{
+                position: relative;
+                padding-left: 20px;
+                line-height: 35px;
+                a{
+                    font-size: 14px;
+                }
+            }
+            &:hover{
+                width: 400px;
+                border: 1px solid #ddd;
+                border-right: none;
+                .nav-i-arrow-right{
+                    @include css-sprite(-111px -59px);     
+                    transform:rotate(270deg);
+                }
+                .hid-item-list{
+                    display: block;
+                }
+            }
+            .hid-item-list{
+                display: none;
+                position: absolute;
+                border-radius: 5px;
+                width: 560px;
+                height: 472px;
+                background: #fff;
+                box-shadow: 2px 1px 1px 1px #ccc;
+                padding: 35px 40px;
+                left: 100%;
+                top: 0;
+                .hid-item-list-item{
+                    width: 50%;
+                    height: 50%;
+                    float: left;
+                    .item-tit{
+                        font-weight: 700;
+                        line-height: 16px;
+                        color: #2192D9;
+                    }
+                    .item-cate{
+                        display: block;
+                    }
+                    .item-see-more{
+                        display: block;
+                        color: #999;
+                    }
+                }
+            }
+        }
+        .nav-categories-all{
+            width: 395px;
+            height: 35px;
+            
+            .hid-item-nav{
+                position: relative;
+                padding-left: 20px;
+                line-height: 35px;
+                a{
+                    font-size: 14px;
+                    color: #2192D9;
+                }
+            }
+        }
     }
+
     .nav-vertical-line{
+        margin-top: 12px;
         float: left;
         height: 16px;
-        width: 1px;
+        width: 2px;
         background: #dddee3;
     }
+
     .nav-list-th{
         float: left;
         .nav-list-item{
@@ -195,13 +305,19 @@ nav{
 
             .nav-list-item-info{
                 vertical-align: middle;
+                line-height: 40px;
             }
             &:hover .nav-i-arrow-down{
-                @include css-sprite(-111px -59px);      
+                @include css-sprite(-111px -59px);
                 transform:rotate(180deg);
             }
             
         }
 
+    }
+
+    .nav-right{
+        float: right;
+        height: 100%; 
     }
 }
